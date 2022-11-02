@@ -1,7 +1,8 @@
+import { useEffect, useState } from "react";
 import NavBar from "./NavBar";
+import CountryCard from "./CountryCard";
 import "./App.css";
 import restcountries from "../apis/restcountries";
-import { useEffect, useState } from "react";
 
 const App = () => {
   const [countries, setCountries] = useState([]);
@@ -9,6 +10,7 @@ const App = () => {
   const searchCountry = async (country) => {
     const data = await restcountries.fetchCountry(country);
     console.log(data);
+    setCountries(data);
   };
 
   const searchRegion = async (region) => {
@@ -23,14 +25,27 @@ const App = () => {
     };
 
     // getAllCountries();
-    // searchCountry("nigeria");
+    searchCountry("america");
     // searchRegion("africa");
   }, []);
+
+  const renderCountries = countries.map((country) => {
+    return (
+      <CountryCard
+        country={country.name.official}
+        region={country.region}
+        population={country.population}
+        capital={country.capital[0]}
+        flag={country.flags.svg}
+        key={country.tld[0]}
+      />
+    );
+  });
 
   return (
     <>
       <NavBar />
-      <h1>hello from app</h1>
+      <main className="main container">{renderCountries}</main>
     </>
   );
 };
