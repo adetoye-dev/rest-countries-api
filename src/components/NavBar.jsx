@@ -6,7 +6,7 @@ const NavBar = () => {
       <div className="container nav-container">
         <h1 className="nav-text">Where in the world?</h1>
         <div className="mode-toggle">
-          <i class="fa-solid fa-moon"></i> Dark Mode
+          <i className="fa-solid fa-moon"></i> Dark Mode
         </div>
       </div>
     </nav>
