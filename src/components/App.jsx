@@ -2,42 +2,45 @@ import { useEffect, useState } from "react";
 import NavBar from "./NavBar";
 import CountryCard from "./CountryCard";
 import "./App.css";
-import restcountries from "../apis/restcountries";
+import fetchCountries from "../apis/restcountries";
+import { nanoid } from "nanoid";
+import SearchBar from "./SearchBar";
 
 const App = () => {
   const [countries, setCountries] = useState([]);
-
-  const searchCountry = async (country) => {
-    const data = await restcountries.fetchCountry(country);
-    console.log(data);
-    setCountries(data);
-  };
-
-  const searchRegion = async (region) => {
-    const data = await restcountries.fetchRegions(region);
-    console.log(data);
-  };
+  const [filteredCountryList, setFilteredCountryList] = useState([]);
 
   useEffect(() => {
     const getAllCountries = async () => {
-      const data = await restcountries.fetchAllCountries();
-      console.log(data);
+      const data = await fetchCountries();
+      //   console.log(data);
+      setCountries(data);
+      setFilteredCountryList(data);
     };
 
-    // getAllCountries();
-    searchCountry("america");
-    // searchRegion("africa");
+    getAllCountries();
   }, []);
 
-  const renderCountries = countries.map((country) => {
+  const findCountry = (input) => {
+    const filteredList = countries.filter((country) => {
+      return (
+        country.name.official.toLowerCase().includes(input.toLowerCase()) ||
+        country.name.common.toLowerCase().includes(input.toLowerCase())
+      );
+    });
+
+    setFilteredCountryList(filteredList);
+  };
+
+  const renderCountries = filteredCountryList.map((country) => {
     return (
       <CountryCard
         country={country.name.official}
         region={country.region}
         population={country.population}
-        capital={country.capital[0]}
+        capital={country.capital}
         flag={country.flags.svg}
-        key={country.tld[0]}
+        key={nanoid()}
       />
     );
   });
@@ -45,6 +48,9 @@ const App = () => {
   return (
     <>
       <NavBar />
+      <div className="search-container container">
+        <SearchBar findCountry={findCountry} />
+      </div>
       <main className="main container">{renderCountries}</main>
     </>
   );
