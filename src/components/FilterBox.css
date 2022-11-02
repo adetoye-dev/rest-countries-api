@@ -1,0 +1,8 @@
+.filter-box {
+  padding: 1.2rem;
+  border: none;
+  outline: none;
+  border-radius: 0.6rem;
+  background-color: var(--Dark-Mode-Elements);
+  color: var(--White);
+}

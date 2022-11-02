@@ -5,10 +5,15 @@ import "./App.css";
 import fetchCountries from "../apis/restcountries";
 import { nanoid } from "nanoid";
 import SearchBar from "./SearchBar";
+import FilterBox from "./FilterBox";
 
 const App = () => {
   const [countries, setCountries] = useState([]);
   const [filteredCountryList, setFilteredCountryList] = useState([]);
+  const [filter, setFilter] = useState({
+    isOn: false,
+    value: "",
+  });
 
   useEffect(() => {
     const getAllCountries = async () => {
@@ -23,12 +28,27 @@ const App = () => {
 
   const findCountry = (input) => {
     const filteredList = countries.filter((country) => {
-      return (
-        country.name.official.toLowerCase().includes(input.toLowerCase()) ||
-        country.name.common.toLowerCase().includes(input.toLowerCase())
-      );
+      return filter.isOn
+        ? (country.name.official.toLowerCase().includes(input.toLowerCase()) ||
+            country.name.common.toLowerCase().includes(input.toLowerCase())) &&
+            country.region.toLowerCase() === filter.value.toLowerCase()
+        : country.name.official.toLowerCase().includes(input.toLowerCase()) ||
+            country.name.common.toLowerCase().includes(input.toLowerCase());
     });
 
+    setFilteredCountryList(filteredList);
+  };
+
+  const filterCountries = (region) => {
+    if (region === "") {
+      setFilter({ isOn: false, value: region });
+      setFilteredCountryList(countries);
+      return;
+    }
+    setFilter({ isOn: true, value: region });
+    const filteredList = countries.filter((country) => {
+      return country.region.toLowerCase() === region.toLowerCase();
+    });
     setFilteredCountryList(filteredList);
   };
 
@@ -50,6 +70,7 @@ const App = () => {
       <NavBar />
       <div className="search-container container">
         <SearchBar findCountry={findCountry} />
+        <FilterBox handleChange={filterCountries} />
       </div>
       <main className="main container">{renderCountries}</main>
     </>
