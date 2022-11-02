@@ -1,0 +1,22 @@
+.search-form {
+  width: 100%;
+  max-width: 42rem;
+  padding: 1rem 2rem;
+  border-radius: 0.6rem;
+  background-color: var(--Dark-Mode-Elements);
+}
+
+.search-icon {
+  margin-inline-end: 1.5rem;
+  font-size: 1.8rem;
+}
+
+.search-input {
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+.search-input::placeholder {
+  color: var(--White);
+}
