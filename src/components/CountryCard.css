@@ -1,0 +1,38 @@
+.country-card {
+  background-color: var(--Dark-Mode-Elements);
+  width: 22rem;
+  height: auto;
+  border-radius: 0.8rem;
+  overflow: hidden;
+}
+
+.country-card-img {
+  height: 13rem;
+  width: 100%;
+}
+
+.country-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.country-card-data {
+  padding: 1.5rem;
+}
+
+.country-name {
+  margin-block-end: 1rem;
+}
+
+.country-data {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-transform: capitalize;
+  font-size: 1.2rem;
+}
+
+.country-data span {
+  font-weight: 600;
+}
