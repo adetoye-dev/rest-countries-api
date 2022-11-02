@@ -1,0 +1,30 @@
+.nav {
+  padding-block: 2rem;
+  font-size: 1.3rem;
+  background-color: var(--Dark-Mode-Elements);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-text {
+  font-weight: 800;
+}
+
+.mode-toggle {
+  font-weight: 600;
+}
+
+.mode-toggle i {
+  margin-inline-end: 0.5rem;
+  transform: rotate(-28deg);
+}
+
+@media (min-width: 480px) {
+  .nav {
+    font-size: 1.6rem;
+  }
+}
