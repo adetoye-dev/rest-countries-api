@@ -1,13 +1,14 @@
 import "./App.css";
 import Home from "./Home";
 import CountryDetail from "./CountryDetail";
+import { Routes, Route } from "react-router-dom";
 
 const App = () => {
   return (
-    <>
-      <CountryDetail />
-      {/* <Home /> */}
-    </>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/countries" element={<CountryDetail />} />
+    </Routes>
   );
 };
 
