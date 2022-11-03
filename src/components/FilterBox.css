@@ -5,4 +5,11 @@
   border-radius: 0.6rem;
   background-color: var(--Dark-Mode-Elements);
   color: var(--White);
+  width: 50%;
+}
+
+@media (min-width: 480px) {
+  .filter-box {
+    width: auto;
+  }
 }
