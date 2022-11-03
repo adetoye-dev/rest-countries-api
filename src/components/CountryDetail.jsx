@@ -1,6 +1,7 @@
 import "./CountryDetail.css";
 import NavBar from "./NavBar";
 import { useLocation, Link } from "react-router-dom";
+import countryCodeList from "../data.json";
 
 const BorderCountry = ({ country, viewCountry }) => {
   return (
@@ -20,7 +21,9 @@ const CountryDetail = ({ viewCountry }) => {
           <i className="fa-solid fa-arrow-left"></i>back
         </Link>
         <div className="country-detail-container">
-          <div className="country-detail-flag"></div>
+          <div className="country-detail-flag">
+            <img src={state.flags.svg} alt="country flag" />
+          </div>
           <div className="country-detail-data">
             <h1 className="country">{state.name.official}</h1>
             <div className="detail-cols-container">
@@ -60,7 +63,7 @@ const CountryDetail = ({ viewCountry }) => {
                   ? state.borders.map((item) => (
                       <BorderCountry
                         key={item}
-                        country={item}
+                        country={countryCodeList[item]}
                         viewCountry={() => viewCountry(item)}
                       />
                     ))
