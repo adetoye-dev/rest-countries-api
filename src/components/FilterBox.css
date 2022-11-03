@@ -3,7 +3,7 @@
   border: none;
   outline: none;
   border-radius: 0.6rem;
-  background-color: var(--Dark-Mode-Elements);
+  background-color: var(--Elements);
   color: var(--White);
   width: 50%;
 }

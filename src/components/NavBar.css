@@ -1,7 +1,7 @@
 .nav {
   padding-block: 2rem;
   font-size: 1.3rem;
-  background-color: var(--Dark-Mode-Elements);
+  background-color: var(--Elements);
 }
 
 .nav-container {

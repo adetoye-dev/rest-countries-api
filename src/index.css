@@ -1,16 +1,23 @@
 :root {
-  --Dark-Mode-Elements: hsl(209, 23%, 22%);
-  --Dark-Mode-Background: hsl(207, 26%, 17%);
-  --Light-Mode-Text: hsl(200, 15%, 8%);
-  --Light-Mode-Input: hsl(0, 0%, 52%);
-  --Light-Mode-Background: hsl(0, 0%, 98%);
-  --White: hsl(0, 0%, 100%);
+  --Elements: hsl(0, 0%, 100%);
+  --Background: hsl(0, 0%, 95%);
+  --Text: hsl(200, 15%, 8%);
+  --Input: hsl(0, 0%, 52%);
+  --Shadow: hsl(0, 0%, 52%);
+}
+
+.dark {
+  --Elements: hsl(209, 23%, 22%);
+  --Background: hsl(207, 26%, 17%);
+  --Text: hsl(0, 0%, 100%);
+  --Input: hsl(0, 0%, 100%);
+  --Shadow: hsl(200, 15%, 8%);
 }
 
 body {
   font-family: "Nunito Sans", sans-serif;
-  background-color: var(--Dark-Mode-Background);
-  color: var(--White);
+  background-color: var(--Background);
+  color: var(--Text);
 }
 
 html {

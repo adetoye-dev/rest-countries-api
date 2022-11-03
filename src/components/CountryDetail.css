@@ -3,8 +3,8 @@
   text-transform: capitalize;
   border: none;
   color: var(--White);
-  background-color: var(--Dark-Mode-Elements);
-  box-shadow: 2px 2px 4px var(--Light-Mode-Text);
+  background-color: var(--Elements);
+  box-shadow: 1px 1px 4px var(--Shadow);
   cursor: pointer;
 }
 

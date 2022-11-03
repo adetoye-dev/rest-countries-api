@@ -3,7 +3,7 @@
   max-width: 42rem;
   padding: 1.2rem 3rem;
   border-radius: 0.6rem;
-  background-color: var(--Dark-Mode-Elements);
+  background-color: var(--Elements);
 }
 
 .search-icon {
@@ -15,9 +15,9 @@
   background-color: transparent;
   outline: none;
   border: none;
-  color: var(--White);
+  color: var(--Text);
 }
 
 .search-input::placeholder {
-  color: var(--Light-Mode-Input);
+  color: var(--Input);
 }
