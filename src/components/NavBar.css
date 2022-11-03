@@ -16,6 +16,7 @@
 
 .mode-toggle {
   font-weight: 600;
+  cursor: pointer;
 }
 
 .mode-toggle i {
