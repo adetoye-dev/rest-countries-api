@@ -1,43 +1,50 @@
 import "./CountryDetail.css";
 import NavBar from "./NavBar";
+import { useLocation, Link } from "react-router-dom";
 
-const BorderCountry = ({ country }) => {
-  return <button className="border-country">{country}</button>;
+const BorderCountry = ({ country, viewCountry }) => {
+  return (
+    <button className="border-country" onClick={viewCountry}>
+      {country}
+    </button>
+  );
 };
 
-const CountryDetail = () => {
+const CountryDetail = ({ viewCountry }) => {
+  const { state } = useLocation();
+  console.log(state);
   return (
     <>
       <NavBar />
       <div className="container">
-        <button className="go-back-btn">
+        <Link className="go-back-btn" to="/">
           <i className="fa-solid fa-arrow-left"></i>back
-        </button>
+        </Link>
         <div className="country-detail-container">
           <div className="country-detail-flag"></div>
           <div className="country-detail-data">
-            <h1 className="country">Belgium</h1>
+            <h1 className="country">{state.name.official}</h1>
             <div className="detail-cols-container">
               <div className="details-col-1">
                 <p className="detail">
-                  <span>Native Name:</span> Belgie
+                  <span>Native Name:</span> {state.name.common}
                 </p>
                 <p className="detail">
-                  <span>Population:</span> 11319511
+                  <span>Population:</span> {state.population}
                 </p>
                 <p className="detail">
-                  <span>Region:</span> Europe
+                  <span>Region:</span> {state.region}
                 </p>
                 <p className="detail">
-                  <span>Sub Region:</span> Western Europe
+                  <span>Sub Region:</span> {state.subregion}
                 </p>
                 <p className="detail">
-                  <span>Capital:</span> Brussels
+                  <span>Capital:</span> {state.capital}
                 </p>
               </div>
               <div className="details-col-2">
                 <p className="detail">
-                  <span>Top Level Domain:</span> .be
+                  <span>Top Level Domain:</span> {state.tld}
                 </p>
                 <p className="detail">
                   <span>currencies:</span> Euro
@@ -50,9 +57,12 @@ const CountryDetail = () => {
             <div className="border-countries">
               <span>Border Countries: </span>
               <div className="borders">
-                <BorderCountry country="France" />
-                <BorderCountry country="Germany" />
-                <BorderCountry country="Netherlands" />
+                {state.borders.map((item) => (
+                  <BorderCountry
+                    country={item}
+                    viewCountry={() => viewCountry(item)}
+                  />
+                ))}
               </div>
             </div>
           </div>
