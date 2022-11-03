@@ -2,7 +2,7 @@ import "./CountryCard.css";
 
 const CountryCard = (props) => {
   return (
-    <div className="country-card">
+    <div className="country-card" onClick={props.viewCountry}>
       <div className="country-card-img">
         <img src={props.flag} alt="country flag" />
       </div>

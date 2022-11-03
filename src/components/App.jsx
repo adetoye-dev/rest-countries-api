@@ -15,13 +15,13 @@ const App = () => {
     });
   };
 
-  useEffect(() => {
-    viewCountry("bol");
-  }, []);
+  //   useEffect(() => {
+  //     viewCountry("bol");
+  //   }, []);
 
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Home viewCountry={viewCountry} />} />
       <Route
         path="countries/:id"
         element={<CountryDetail viewCountry={viewCountry} />}

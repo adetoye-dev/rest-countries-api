@@ -7,7 +7,7 @@ import { nanoid } from "nanoid";
 import SearchBar from "./SearchBar";
 import FilterBox from "./FilterBox";
 
-const Home = () => {
+const Home = ({ viewCountry }) => {
   const [countries, setCountries] = useState([]);
   const [filteredCountryList, setFilteredCountryList] = useState([]);
   const [filter, setFilter] = useState({
@@ -18,7 +18,7 @@ const Home = () => {
   useEffect(() => {
     const getAllCountries = async () => {
       const data = await restCountries.fetchCountries();
-      console.log(data);
+      //   console.log(data);
       setCountries(data);
       setFilteredCountryList(data);
     };
@@ -61,6 +61,7 @@ const Home = () => {
         capital={country.capital}
         flag={country.flags.svg}
         key={nanoid()}
+        viewCountry={() => viewCountry(country.cca3)}
       />
     );
   });
