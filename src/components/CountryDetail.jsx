@@ -12,7 +12,6 @@ const BorderCountry = ({ country, viewCountry }) => {
 
 const CountryDetail = ({ viewCountry }) => {
   const { state } = useLocation();
-  console.log(state);
   return (
     <>
       <NavBar />
@@ -57,12 +56,15 @@ const CountryDetail = ({ viewCountry }) => {
             <div className="border-countries">
               <span>Border Countries: </span>
               <div className="borders">
-                {state.borders.map((item) => (
-                  <BorderCountry
-                    country={item}
-                    viewCountry={() => viewCountry(item)}
-                  />
-                ))}
+                {state.borders
+                  ? state.borders.map((item) => (
+                      <BorderCountry
+                        key={item}
+                        country={item}
+                        viewCountry={() => viewCountry(item)}
+                      />
+                    ))
+                  : ""}
               </div>
             </div>
           </div>
