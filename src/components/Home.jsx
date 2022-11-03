@@ -18,7 +18,6 @@ const Home = ({ viewCountry }) => {
   useEffect(() => {
     const getAllCountries = async () => {
       const data = await restCountries.fetchCountries();
-      //   console.log(data);
       setCountries(data);
       setFilteredCountryList(data);
     };
