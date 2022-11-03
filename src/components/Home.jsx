@@ -2,11 +2,10 @@ import { useEffect, useState } from "react";
 import NavBar from "./NavBar";
 import CountryCard from "./CountryCard";
 import "./Home.css";
-import fetchCountries from "../apis/restcountries";
+import restCountries from "../apis/restcountries";
 import { nanoid } from "nanoid";
 import SearchBar from "./SearchBar";
 import FilterBox from "./FilterBox";
-import CountryDetail from "./CountryDetail";
 
 const Home = () => {
   const [countries, setCountries] = useState([]);
@@ -18,7 +17,7 @@ const Home = () => {
 
   useEffect(() => {
     const getAllCountries = async () => {
-      const data = await fetchCountries();
+      const data = await restCountries.fetchCountries();
       console.log(data);
       setCountries(data);
       setFilteredCountryList(data);

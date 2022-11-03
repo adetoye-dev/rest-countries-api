@@ -5,4 +5,16 @@ const fetchCountries = async () => {
   return response.data;
 };
 
-export default fetchCountries;
+const fecthCountry = async (code) => {
+  const response = await axios.get(
+    `https://restcountries.com/v3.1/alpha/${code}`
+  );
+  return response.data;
+};
+
+const restCountries = {
+  fetchCountries,
+  fecthCountry,
+};
+
+export default restCountries;
