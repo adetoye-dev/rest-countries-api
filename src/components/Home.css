@@ -10,6 +10,7 @@
   padding-block: 3rem;
   display: grid;
   gap: 2rem;
+  justify-content: center;
   grid-template-columns: auto;
 }
 
@@ -19,5 +20,6 @@
   }
   .main {
     grid-template-columns: auto auto auto auto;
+    gap: 5rem;
   }
 }
