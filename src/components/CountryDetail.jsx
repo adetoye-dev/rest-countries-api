@@ -1,5 +1,4 @@
 import "./CountryDetail.css";
-import NavBar from "./NavBar";
 import { useLocation, Link } from "react-router-dom";
 import countryCodeList from "../data.json";
 
@@ -30,7 +29,10 @@ const CountryDetail = ({ viewCountry }) => {
                 <span>Native Name:</span> {state.name.common}
               </p>
               <p className="detail">
-                <span>Population:</span> {state.population}
+                <span>Population:</span>{" "}
+                {parseInt(state.population)
+                  .toLocaleString("en")
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
               </p>
               <p className="detail">
                 <span>Region:</span> {state.region}

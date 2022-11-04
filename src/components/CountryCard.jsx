@@ -10,7 +10,10 @@ const CountryCard = (props) => {
         <h2 className="country-name">{props.country}</h2>
         <div className="country-data">
           <div className="population">
-            <span>population:</span> {props.population}
+            <span>population:</span>{" "}
+            {parseInt(props.population)
+              .toLocaleString("en")
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
           </div>
           <div className="region">
             <span>region:</span> {props.region}
