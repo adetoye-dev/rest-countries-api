@@ -1,6 +1,6 @@
 .country-card {
   background-color: var(--Elements);
-  width: 23rem;
+  width: auto;
   height: auto;
   border-radius: 0.8rem;
   overflow: hidden;
