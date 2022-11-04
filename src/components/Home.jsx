@@ -66,14 +66,13 @@ const Home = ({ viewCountry }) => {
   });
 
   return (
-    <>
-      <NavBar />
+    <main className="main container">
       <div className="search-container container">
         <SearchBar findCountry={findCountry} />
         <FilterBox handleChange={filterCountries} />
       </div>
-      <main className="main container">{renderCountries}</main>
-    </>
+      <div className="render-countries">{renderCountries}</div>
+    </main>
   );
 };
 

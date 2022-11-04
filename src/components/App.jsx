@@ -1,9 +1,9 @@
 import "./App.css";
 import Home from "./Home";
 import CountryDetail from "./CountryDetail";
-import { useNavigate, Routes, Route } from "react-router-dom";
+import { useNavigate, Routes, Route, Outlet } from "react-router-dom";
 import restCountries from "../apis/restcountries";
-import { useEffect } from "react";
+import NavBar from "./NavBar";
 
 const App = () => {
   const navigate = useNavigate();
@@ -15,17 +15,28 @@ const App = () => {
     });
   };
 
+  const Layout = () => {
+    return (
+      <>
+        <NavBar />
+        <Outlet />
+      </>
+    );
+  };
+
   //   useEffect(() => {
   //     viewCountry("bol");
   //   }, []);
 
   return (
     <Routes>
-      <Route path="/" element={<Home viewCountry={viewCountry} />} />
-      <Route
-        path="countries/:id"
-        element={<CountryDetail viewCountry={viewCountry} />}
-      />
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home viewCountry={viewCountry} />} />
+        <Route
+          path="countries/:id"
+          element={<CountryDetail viewCountry={viewCountry} />}
+        />
+      </Route>
     </Routes>
   );
 };

@@ -6,7 +6,7 @@
   flex-direction: column;
 }
 
-.main {
+.render-countries {
   padding-block: 3rem;
   display: grid;
   gap: 2rem;
@@ -18,7 +18,7 @@
   .search-container {
     flex-direction: row;
   }
-  .main {
+  .render-countries {
     grid-template-columns: auto auto auto auto;
     gap: 5rem;
   }
