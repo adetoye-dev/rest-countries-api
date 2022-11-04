@@ -24,10 +24,6 @@ const App = () => {
     );
   };
 
-  //   useEffect(() => {
-  //     viewCountry("bol");
-  //   }, []);
-
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
