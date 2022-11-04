@@ -25,7 +25,6 @@ const SearchBar = ({ findCountry }) => {
         className="search-input"
         placeholder="Search for a country..."
         value={country}
-        autoComplete="false"
         onChange={(e) => handleChange(e.target.value)}
       />
     </form>

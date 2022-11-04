@@ -67,7 +67,7 @@ const Home = ({ viewCountry }) => {
 
   return (
     <main className="main container">
-      <div className="search-container container">
+      <div className="search-container">
         <SearchBar findCountry={findCountry} />
         <FilterBox handleChange={filterCountries} />
       </div>
