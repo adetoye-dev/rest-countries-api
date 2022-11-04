@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import NavBar from "./NavBar";
 import CountryCard from "./CountryCard";
 import "./Home.css";
 import restCountries from "../apis/restcountries";

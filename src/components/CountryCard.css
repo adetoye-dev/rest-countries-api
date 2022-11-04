@@ -41,3 +41,12 @@
 .country-data span {
   font-weight: 600;
 }
+
+@media (min-width: 480px) {
+  .country-name {
+    font-size: 1.6rem;
+  }
+  .country-data {
+    font-size: 1.4rem;
+  }
+}
