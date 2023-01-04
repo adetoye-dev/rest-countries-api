@@ -13,6 +13,7 @@ const BorderCountry = ({ country, viewCountry }) => {
 const CountryDetail = ({ viewCountry }) => {
   const { state } = useLocation();
 
+  const currencies = Object.values(state.currencies).map((item) => item.name);
   return (
     <div className="container">
       <Link className="go-back-btn" to="/">
@@ -50,7 +51,7 @@ const CountryDetail = ({ viewCountry }) => {
                 <span>Top Level Domain:</span> {state.tld}
               </p>
               <p className="detail">
-                <span>currencies:</span>
+                <span>currencies:</span> {currencies.join(", ")}
               </p>
               <p className="detail">
                 <span>Languages:</span>{" "}
