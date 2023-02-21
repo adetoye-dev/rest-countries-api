@@ -5,6 +5,7 @@ import restCountries from "../apis/restcountries";
 import { nanoid } from "nanoid";
 import SearchBar from "./SearchBar";
 import FilterBox from "./FilterBox";
+import Loader from "./Loader";
 
 const Home = ({ viewCountry }) => {
   const [countries, setCountries] = useState([]);
@@ -70,7 +71,9 @@ const Home = ({ viewCountry }) => {
         <SearchBar findCountry={findCountry} />
         <FilterBox handleChange={filterCountries} />
       </div>
-      <div className="render-countries">{renderCountries}</div>
+      <div className="render-countries">
+        {countries.length !== 0 ? renderCountries : <Loader />}
+      </div>
     </main>
   );
 };
