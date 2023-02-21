@@ -2,7 +2,7 @@
   width: 5rem;
   height: 5rem;
   border-radius: 50%;
-  border: 2px dashed red;
+  border: 2px dashed var(--Text);
   animation: spin 1.5s linear infinite;
 }
 
