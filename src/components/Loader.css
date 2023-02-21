@@ -2,6 +2,8 @@
   width: 5rem;
   height: 5rem;
   border-radius: 50%;
+  margin: auto;
+  margin-top: 15rem;
   border: 2px dashed var(--Text);
   animation: spin 1.5s linear infinite;
 }
@@ -12,5 +14,11 @@
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@media (min-width: 900px) {
+  .loader {
+    margin-top: 10rem;
   }
 }
